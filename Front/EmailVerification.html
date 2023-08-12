@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/EmailVerification.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <script src="APIs.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="formItems">
+                <div class="item">
+                    <img src="Images/emailVerification.png" class="emailVerificationLogo" alt="">
+                    <h2 class="headerTitle">Email Verification</h2>
+                </div>
+                <div class="item">
+                    <h4>The code has been sent to your email</h4>
+                </div>
+                <div class="item">
+                    <div class="OtpCode">
+                        <input type="number" maxlength="1" inputmode="numeric" pattern="[0-9]*" />
+                        <input type="number" maxlength="1" inputmode="numeric" disabled pattern="[0-9]*" />
+                        <input type="number" maxlength="1" inputmode="numeric" disabled pattern="[0-9]*" />
+                        <input type="number" maxlength="1" inputmode="numeric" disabled pattern="[0-9]*" />
+                        <input type="number" maxlength="1" inputmode="numeric" disabled pattern="[0-9]*" />
+                        <input type="number" maxlength="1" inputmode="numeric" disabled pattern="[0-9]*" />
+                    </div>
+                </div>
+
+                <div class="item mainError" id="mainError">
+                    <div id="mainErrorMessage">Your password must contaion at least :<br />
+                        &nbsp; - One uppercase and lowercase letter
+                        <br />
+                        &nbsp; - One number
+                        <br />
+                        &nbsp; - One special character, such as @, #, or $
+                        <br />
+                        &nbsp; - 8 characters
+                    </div>
+                </div>
+
+                <div class="item" id="submitForm">
+                    <input type="submit" id="submitButton" name="register" value="Submit"
+                        onclick="EmailVerification()" />
+                    <div id="timer"></div>
+                    <button id="resendBtn">Resend Code</button>
+                </div>
+                <div class="item" id="loader">
+                    <div class="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var otpInputs = document.querySelectorAll('.OtpCode input');
+
+        for (var i = 0; i < otpInputs.length; i++) {
+            otpInputs[i].addEventListener('input', function () {
+                if (this.value.length > 1) {
+                    this.value = this.value.slice(0, 1);
+                }
+
+                if (this.value.length === 1) {
+                    var nextInput = getNextInput(this);
+                    if (nextInput) {
+                        nextInput.disabled = false;
+                        nextInput.focus();
+                        this.disabled = true;
+                    }
+                }
+            });
+
+            otpInputs[i].addEventListener('keydown', function (event) {
+                if (event.key === 'Backspace' && this.value.length === 0) {
+                    var previousInput = getPreviousInput(this);
+                    if (previousInput) {
+                        previousInput.disabled = false;
+                        previousInput.value = '';
+                        previousInput.focus();
+                        this.disabled = true;
+                    }
+                }
+            });
+        }
+
+        function getNextInput(currentInput) {
+            var nextInput = currentInput.nextElementSibling;
+            if (nextInput && nextInput.tagName === 'INPUT') {
+                return nextInput;
+            }
+            return null;
+        }
+
+        function getPreviousInput(currentInput) {
+            var previousInput = currentInput.previousElementSibling;
+            if (previousInput && previousInput.tagName === 'INPUT') {
+                return previousInput;
+            }
+            return null;
+        }
+    </script>
+
+    <script>
+        window.onload = function () {
+            var initialTime = localStorage.getItem("codeExpTime")
+            var countdownTimer;
+            var timeLimit = 60 * parseInt(initialTime.substring(0, 2)) + parseInt(initialTime.substring(3));
+            var timerElement = document.getElementById("timer");
+            var resendBtn = document.getElementById("resendBtn");
+
+            function startTimer() {
+                var minutes, seconds;
+
+                function updateTimer() {
+                    minutes = parseInt(timeLimit / 60, 10);
+                    seconds = parseInt(timeLimit % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    timerElement.innerHTML = minutes + ":" + seconds;
+
+                    if (timeLimit <= 0) {
+                        clearTimeout(countdownTimer);
+                        timerElement.style.display = "none";
+                        resendBtn.style.display = "block";
+                    } else {
+                        timeLimit--;
+                    }
+                }
+
+                updateTimer();
+                countdownTimer = setInterval(updateTimer, 1000); // Update timer every second
+            }
+
+            function resetTimer() {
+                clearTimeout(countdownTimer);
+                initialTime = localStorage.getItem("codeExpTime")
+                timeLimit = 60 * parseInt(initialTime.substring(0, 2)) + parseInt(initialTime.substring(3));
+                timerElement.style.display = "block";
+                resendBtn.style.display = "none";
+                startTimer();
+            }
+            startTimer();
+            resendBtn.addEventListener("click", function () {
+                resendOtpCode()
+                    .then(response => {
+                        if (response) {
+                            resetTimer();
+                        }
+                    })
+            });
+        };
+
+    </script>
+
+</body>
+
+</html>

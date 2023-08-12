@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) and (min-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 399px) and (min-width: 310px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 309px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.container {
+    font-family: Roboto;
+    width: 100%;
+    height: 100%;
+    background: url(../Images/signUpBackground.jpg) no-repeat center/cover;
+    display: flex;
+}
+
+.form {
+    background: rgba(217, 217, 217, 0.5);
+    border-top-left-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+    border: 1px solid #fff;
+    margin: auto;
+}
+
+.formItems {
+    width: 30rem;
+    padding: 1rem 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.emailLogo {
+    max-width: 31rem;
+
+}
+
+.emailVerificationLogo {
+    width: 40%;
+
+}
+
+.item:first-child {
+    text-align: center;
+}
+
+.item {
+    text-align: center;
+}
+
+.item:nth-child(2) h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.719);
+}
+
+.headerTitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #102daa;
+}
+
+.item:nth-child(3) {
+    display: flex;
+    justify-content: center;
+}
+
+.OtpCode {
+    margin-block: auto;
+    text-align: center;
+    border-radius: .5rem;
+    background-color: #88d6fa9c;
+    padding: 1rem;
+    display: flex;
+    gap: .7rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input:not([type="submit"]) {
+    max-width: 2rem;
+    background-color: #ffffff;
+    border: solid .1rem black;
+    height: 2.4rem;
+    appearance: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border-radius: .3rem;
+    text-align: center;
+    color: black;
+}
+
+input:not([type="submit"]):focus {
+    transform: translateY(-.1rem);
+    outline: none;
+}
+
+.form input[type="submit"] {
+    border-radius: .4rem;
+    border: none;
+    font-size: 1.1rem;
+    background-color: #512680;
+    font-weight: bold;
+    color: white;
+    padding: 1rem 1.6rem;
+}
+
+.form input[type="submit"]:active {
+
+    transform: translateY(-0.07em);
+    transition: 0.04s;
+}
+
+#submitForm {
+    position: relative;
+}
+
+.mainError {
+    font-size: .9rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(177, 14, 14);
+    background-color: rgba(236, 162, 162, 0.438);
+    border-radius: 1rem;
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition:
+        max-height 1.3s ease-out,
+        visibility 1.3s ease-out;
+}
+
+.mainError div {
+    padding: .7rem;
+}
+
+.show-main-error {
+    visibility: visible;
+    max-height: 40rem;
+}
+
+#timer {
+    position: absolute;
+    right: .1rem;
+    top: 13%;
+    font-size: 1.2rem;
+    background-color: rgba(255, 196, 196, 0.733);
+    border-radius: .1rem;
+    padding: .5rem;
+    color: rgb(95, 0, 0);
+    font-weight: 500;
+}
+
+#resendBtn {
+    border: none;
+    position: absolute;
+    display: none;
+    right: .1rem;
+    top: 14%;
+    font-size: 1rem;
+    background-color: rgba(34, 34, 34, 0.733);
+    color: white;
+    border-radius: .6rem;
+    padding: .5rem;
+}
+
+#resendBtn:hover {
+    background-color: rgba(34, 34, 34, 0.897);
+}
+
+#resendBtn:active {
+    transform: translateY(-0.07em);
+    background-color: rgba(34, 34, 34);
+    transition: 0.04s;
+}

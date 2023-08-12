@@ -1,0 +1,169 @@
+header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.bars {
+    display: none;
+}
+
+.logo img {
+    max-width: 7rem;
+    margin: .4rem;
+}
+
+.logo {
+    font-size: 1.4rem;
+    background: rgb(231, 231, 231);
+    display: flex;
+    color: #7b26ac;
+    align-items: center;
+    transform: skewX(20deg);
+    margin-right: 1.4rem;
+}
+
+.temp {
+    transform: skewX(-20deg);
+    background: rgb(231, 231, 231);
+}
+
+nav {
+    padding: 1rem 0;
+    flex-grow: 1;
+    padding-left: 8rem;
+    margin-left: -2rem;
+    background-color: rgba(231, 231, 231, 0.918);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #3a3a3a;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    padding: .5rem;
+}
+
+nav a,
+nav a:after,
+nav a:before {
+    transition: all .5s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+nav a:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    content: '.';
+    color: transparent;
+    background: #8f53b1;
+    border-radius: 1.8rem;
+    visibility: none;
+    opacity: 0;
+    z-index: -1;
+}
+
+nav a:hover:after {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+}
+
+.profile {
+    margin-left: auto;
+    margin-right: 2.5rem;
+    display: none;
+}
+
+.enableProfile {
+    display: block;
+}
+
+@media (max-width: 659px) {
+    header {
+        background: rgb(231, 231, 231);
+        position: sticky;
+    }
+
+    nav {
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 0;
+        visibility: hidden;
+        transition:
+            height .3s,
+            visibility .3s;
+    }
+
+    .profile {
+        margin: 0;
+    }
+
+    .enableMobileNav {
+        visibility: visible;
+        height: 20rem;
+    }
+
+    nav a {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        width: 100%;
+        margin: 1rem 0rem 1rem 1.5rem;
+    }
+
+    .temp {
+        transform: none;
+    }
+
+    .logo {
+        transform: none;
+    }
+
+    .bars a {
+        text-decoration: none;
+        font-size: 3rem;
+        color: #0f0f0f;
+    }
+
+    .bars a:active {
+        background-color: #4b4b4b;
+        border-radius: .4rem;
+        color: white;
+        padding: .2rem;
+    }
+
+    .bars {
+        display: block;
+        margin-left: auto;
+        margin-right: 2rem;
+    }
+}

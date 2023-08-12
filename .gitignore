@@ -1,0 +1,7 @@
+bin
+obj
+.idea
+WebApplication.sln.DotSettings.user
+Migrations
+database.db
+.vscode

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/registerStyles.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <script src="inputValidation.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.addEventListener("click", function(){
+            var email= document.getElementsByName("email")[0];
+            var errorMessage = document.getElementById("emailError");
+            if(!emailValidator(email.value)){
+                errorMessage.classList.add("show-error");
+                return;
+            }
+            errorMessage.classList.remove("show-error")
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="form">
+        <div class="formItems">
+
+            <div class="formItem">
+                <h2>Email Confirmation</h2>
+            </div>
+
+            <div class="formItem">
+                <label>Email Address</label>
+                <input type="text" name="email" placeholder="Your email address"/>
+                <i class="fas fa-envelope"></i>
+                <div id="emailError" class="error-message">Invalid email address</div>
+            </div>
+
+            <div class="formItem">
+                <input type="submit" id="submitButton" name="register" value="Send Code"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

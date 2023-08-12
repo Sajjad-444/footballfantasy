@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="CSS/navigation.css">
+    <link rel="stylesheet" href="CSS/Index.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/filter.css">
+    <link rel="stylesheet" href="CSS/list.css">
+    <!-- <link rel="stylesheet" href="CSS/SoccerPlayerList.css"> -->
+    <link rel="stylesheet" href="CSS/profile.css">
+    <link rel="stylesheet" href="CSS/Pagination.css">
+    <script src="nav.js" defer></script>
+    <script src="filter.js" defer></script>
+    <script src="APIs.js"></script>
+    <script src="List.js"></script>
+    <script src="nav.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="temp">
+                <div class="logo">
+                    <img src="Images/siteLogo.png" alt="">
+                    <h2>Football Fantasy</h2>
+                </div>
+            </div>
+            <div class="bars">
+                <a href="#" onclick="toggleNavBar()">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <nav id="mobileNav">
+                <ul id="navButtons">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Scoreboard.html">Scoreboard</a></li>
+                    <li><a href="SoccerPlayers.html">Players</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li class="profile" id="profile"><a href="Profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="oops">
+                <div class="oops-image">
+                    <img src="Images/oops.png">
+                </div>
+                <div>
+                    <h4>please sign in first</h4>
+                </div>
+            </section>
+
+
+            <div class="listAndFilter">
+
+                <div class="filter-Container">
+                    <div class="filter">
+                        <a href="#" class="icon-bar" onclick="toggleFilterBar()">
+                            <i class="fas fa-sliders"></i>
+                            <h2>Filter</h2>
+                        </a>
+                        <div class="filter-side">
+                            <div class="filterByName">
+                                <label>Name</label>
+                                <input type="text" placeholder="Filter By name">
+                            </div>
+                            <div class="position">
+                                <label>Position </label>
+                                <div class="positions">
+                                    <input type="submit" value="All" active="1" id="active-position">
+                                    <input type="submit" value="Forward" active="0">
+                                    <input type="submit" value="Midfielder" active="0">
+                                    <input type="submit" value="Defender" active="0">
+                                    <input type="submit" value="Goalkeeper" active="0">
+                                </div>
+                            </div>
+
+                            <div class="price">
+                                <label>Price </label>
+                                <div class="wrapper">
+                                    <div class="num-input priceNumInput">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" class="input-min" value="0">
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" class="input-max" value="30">
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress priceProgress"></div>
+                                    </div>
+                                    <div class="range-input priceInputs">
+                                        <input type="range" class="range-min" min="0" max="30" value="0" step="1">
+                                        <input type="range" class="range-max" min="0" max="30" value="30" step="1">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="score">
+                                <label>Score </label>
+                                <div class="wrapper">
+                                    <div class="num-input scoreNumInput">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" class="input-min" value="0">
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" class="input-max" value="400">
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress scoreProgress"></div>
+                                    </div>
+                                    <div class="range-input scoreInputs">
+                                        <input type="range" class="range-min" min="0" max="400" value="0" step="5">
+                                        <input type="range" class="range-max" min="0" max="400" value="400" step="5">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-of-part">
+                                <label>Order of </label>
+                                <div class="order-of">
+                                    <input type="submit" value="Score" active="1" id="active-order-of">
+                                    <input type="submit" value="Price" active="0">
+                                </div>
+
+                            </div>
+
+                            <div class="order-type-part">
+                                <label>Order type </label>
+                                <div class="order-type">
+                                    <input type="submit" value="Descending" active="1" id="active-order-type">
+                                    <input type="submit" value="Ascending">
+                                </div>
+
+                            </div>
+
+                            <div class="btn">
+                                <input type="submit" id="FilterButton" name="register" value="Filter" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lists">
+
+
+                    <!-- <div class="user-information">
+                        <h2 id="UserName">UserName</h2>
+                        <h2 class="Cash">Cash: <span id="User-Cash">100</span></h2>
+                    </div> -->
+
+                    <div class="user-soccerPlares-list">
+                        <div class="list-container">
+                            <div id="FirstRow">
+                                <div class="item">Picture</div>
+                                <div class="item name">Name</div>
+                                <div class="item">Position</div>
+                                <div class="item">Team</div>
+                                <div class="item">Score</div>
+                                <div class="item">Price</div>
+                                <div class="item">Role</div>
+                                <div class="item remove-btn"></div>
+                            </div>
+                            <div class="list">
+
+                                <div class="row">
+                                    <div class="item">
+                                        <div class="picture">
+                                            <img src="Images/Photo-Missing.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="item name">Lionel Messi alright then</div>
+                                    <div class="item">Midfielder</div>
+                                    <div class="item">Juventus</div>
+                                    <div class="item">100</div>
+                                    <div class="item">30</div>
+                                    <div class="item">subtitute</div>
+                                    <div class="item remove-btn"><input type="submit" value="Remove"><input type="submit" value="Remove"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="soccer-players-list">
+                        <div class="list-container">
+                            <div id="FirstRow">
+                                <div class="item">Picture</div>
+                                <div class="item name">Name</div>
+                                <div class="item">Position</div>
+                                <div class="item">Team</div>
+                                <div class="item">Score</div>
+                                <div class="item">Price</div>
+                                <div class="item"></div>
+                            </div>
+                            <div class="list" id="listOfSoccerPlayers">
+
+                            </div>
+                        </div>
+                        <div class="pagination">
+                            <a href="#" id="previous">❮</a>
+                            <div id="paginationNums">
+                            </div>
+                            <a href="#" id="next">❯</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </main>
+        <footer>
+            <h3>Football Fantasy</h3>
+            <p>Copyright 2023</p>
+        </footer>
+
+    </div>
+
+
+    <script>
+        var profile = document.getElementById("profile");
+        var listAndFilter = document.getElementsByClassName("listAndFilter")[0];
+        var Oops = document.getElementById("oops");
+        window.onload = function () {
+            updateUserPlayersTable();
+            console.log(getUserSoccerPlayers());
+            tokenAuthentication()
+                .then(response => {
+                    if (response) {
+                        Oops.style.display = "none";
+                        listAndFilter.style.display = "flex";
+                        profile.classList.add("enableProfile");
+                        return;
+                    }
+                    Oops.style.display = "block";
+                    listAndFilter.style.display = "none";
+                });
+            filterSoccerPlayers(1).then(response => {
+                console.log(response.soccerPlayers)
+                updateSoccerPlayerList(response.soccerPlayers, true, "buy");
+                if (response.pageCount === 0) {
+                    updatePagination(1, "auto", null, "soccerPlayers");
+                }
+                else {
+                    updatePagination(response.pageCount, "auto", null, "soccerPlayers");
+                }
+            })
+        }
+
+        filter(true);
+        nextPage("soccerPlayers", true);
+        previousPage("soccerPlayers", true);
+    </script>
+
+
+
+
+</body>
+
+</html>

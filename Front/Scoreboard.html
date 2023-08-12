@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Index.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="CSS/navigation.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/list.css">
+    <link rel="stylesheet" href="CSS/Scoreboard.css">
+    <link rel="stylesheet" href="CSS/Pagination.css">
+    <script src="nav.js" defer></script>
+    <script src="filter.js" defer></script>
+    <script src="APIs.js"></script>
+    <script src="List.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="temp">
+                <div class="logo">
+                    <img src="Images/siteLogo.png" alt="">
+                    <h2>Football Fantasy</h2>
+                </div>
+            </div>
+            <div class="bars">
+                <a href="#" onclick="toggleNavBar()">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <nav id="mobileNav">
+                <ul id="navButtons">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Scoreboard.html">Scoreboard</a></li>
+                    <li><a href="SoccerPlayers.html">Players</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li class="profile" id="profile"><a href="Profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="users-list">
+                <div class="list-container">
+                    <div id="FirstRow">
+                        <div class="item name">UserName</div>
+                        <div class="item">Score</div>
+                    </div>
+
+                    <div class="list" id="listOfUsers">
+
+                    </div>
+                </div>
+                <div class="pagination">
+                    <a href="#" id="previous">❮</a>
+                    <div id="paginationNums">
+                    </div>
+                    <a href="#" id="next">❯</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <h3>Football Fantasy</h3>
+            <p>Copyright 2023</p>
+        </footer>
+    </div>
+
+    <script>
+        var profile = document.getElementById("profile");
+        window.onload = function () {
+            tokenAuthentication()
+                .then(response => {
+                    if (response) {
+                        profile.classList.add("enableProfile");
+                        return;
+                    }
+                });
+            getUsers(1).then(response => {
+                updateUserList(response.users);
+                console.log(response.users);
+                if (response.pageCount === 0) {
+                    updatePagination(1, "auto", null, "users");
+                }
+                else {
+                    updatePagination(response.pageCount, "auto", null, "users");
+                }
+            })
+        }
+        nextPage("users");    /// not coorect for this pge
+        previousPage("users");
+    </script>
+
+</body>
+
+
+</html>

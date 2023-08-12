@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/registerStyles.css" />
+  <link rel="stylesheet" href="CSS/EmailVerification.css" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="fonts/fontawesome/css/all.css" />
+  <title>Document</title>
+  <style>
+    #submitDoneButton {
+      border-radius: .4rem;
+      border: none;
+      font-size: 1.1rem;
+      font-family: Roboto;
+      background-color: #512680;
+      font-weight: bold;
+      color: white;
+      margin: 0;
+      height: auto;
+    }
+    #submitDoneButton :active {
+      transform: translateY(-0.07em);
+    }
+
+    .formItems h2 {
+      color: rgb(46, 58, 167);
+      margin: 1.5rem auto 1rem;
+      background-color: rgba(255, 255, 255, 0.685);
+      padding: .5rem 1rem;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form">
+      <div class="formItems">
+        <div class="item">
+          <img src="Images/SignUpDone.png" class="emailVerificationLogo" alt="">
+          <h2 class="headerTitle">Signed Up Successfully</h2>
+        </div>
+        <div class="item">
+          <input type="submit" id="submitDoneButton" value="Home page" onclick="go()" />
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  function go() {
+    window.location.href = "Index.html"
+  }
+</script>
+
+</body>
+
+</html>

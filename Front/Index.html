@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="CSS/navigation.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <link rel="stylesheet" href="CSS/Index.css">
+    <script src="nav.js"></script>
+    <script src="APIs.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="temp">
+                <div class="logo">
+                    <img src="Images/siteLogo.png" alt="">
+                    <h2>Football Fantasy</h2>
+                </div>
+            </div>
+            <div class="bars">
+                <a href="#" onclick="toggleNavBar()">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <nav id="mobileNav">
+                <ul id="navButtons">
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Scoreboard.html">Scoreboard</a></li>
+                    <li><a href="SoccerPlayers.html">Players</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li class="profile" id="profile"><a href="Profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="signUp-Login">
+                <h2>
+                    Hurry Up
+                </h2>
+                <h4>
+                    Welcome to Football Fantasy, Fire Up We have a city to <span
+                        style="color: red; text-shadow: 0px 0px 16px;">BURN</span> !
+                </h4>
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <img src="Images/championsLeague.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="Images/harryKane.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="Images/messi.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="Images/Ronaldo.jpg" style="width:100%">
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div id="buttons">
+                    <input type="submit" id="signUp" value="Sign up" onclick="userSignUpByToken()" />
+                    <input type="submit" id="signIn" value="Sign in" onclick="goToSignIn()" />
+                </div>
+
+                <div id="loader" style="padding-bottom: 1.2rem;">
+                    <div class="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        <footer>
+            <h3>Football Fantasy</h3>
+            <p>Copyright 2023</p>
+        </footer>
+
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 3000); // Change image every 2 seconds
+        }
+    </script>
+
+
+    <script>
+        var buttons = document.getElementById("buttons");
+        var profile = document.getElementById("profile");
+        window.onload = function () {
+            tokenAuthentication()
+                .then(response => {
+                    if (response) {
+                        buttons.style.display = "none";
+                        profile.classList.add("enableProfile");
+                        return;
+                    }
+                })
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/registerStyles.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
+    <script src="inputValidation.js" defer></script>
+    <script src="APIs.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.addEventListener("click", function () {
+                if (logInValidation()) {
+                    console.log(logInValidation())
+                    userLogIn();
+                }
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="formItems">
+
+                <div class="formItem">
+                    <h2>Sign in Now</h2>
+                </div>
+
+                <div class="formItem">
+                    <label>UserName/Email</label>
+                    <input type="text" name="UserName/Email" placeholder="Your Email or UserName" />
+                    <i class="fas fa-user"></i>
+                    <div id="inputError" class="error-message">Invalid Email or UserName</div>
+                </div>
+
+                <div class="formItem">
+                    <label>password</label>
+                    <input type="text" name="password" placeholder="Your Password" />
+                    <div id="passwordError" class="error-message">Invalid password</div>
+                    <i class="fas fa-lock"></i>
+                </div>
+
+
+                <div class="formItem mainError" id="mainError">
+                    <div style="padding: .7rem;" id="mainErrorMessage">Your password must contaion at least :<br />
+                        &nbsp; - One uppercase and lowercase letter
+                        <br />
+                        &nbsp; - One number
+                        <br />
+                        &nbsp; - One special character, such as @, #, or $
+                        <br />
+                        &nbsp; - 8 characters
+                    </div>
+                </div>
+
+                <div class="formItem submit">
+                    <input type="submit" id="submitButton" name="register" value="Sign in"
+                        style="margin-top: .6rem; width: 8rem;" />
+                </div>
+
+
+                <div class="fromItem" id="loader">
+                    <div class="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

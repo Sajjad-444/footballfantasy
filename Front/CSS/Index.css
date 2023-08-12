@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1310px) and (min-width: 980px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 979px) and (min-width: 830px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 829px) and (min-width: 740px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 739px) {
+
+    /* 660 px is the least */
+    html {
+        font-size: 8px;
+    }
+}
+
+
+body {
+    font-family: Roboto;
+
+}
+
+.container {
+    background-image: url(../Images/IndexBackground.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100dvh;
+}
+
+/* signup-login */
+.signUp-Login {
+    background-color: rgba(231, 231, 231, 0.774);
+    text-align: center;
+    width: 60rem;
+    margin-inline: auto;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+    border-radius: 1.5rem;
+    padding-bottom: .1rem;
+}
+
+.signUp-Login h2 {
+    font-size: 1.9rem;
+    color: #263aac;
+    padding: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.signUp-Login h4 {
+    font-size: 1.6rem;
+    color: rgb(58, 58, 58);
+    margin-bottom: 2rem;
+}
+
+.mySlides {
+    width: 45rem;
+    margin-inline: auto;
+}
+
+.mySlides img {
+    height: 25rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    border: solid 2px black;
+}
+
+.dots {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #8a8a8a;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #0f0f0f;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+input[type="submit"] {
+    border-radius: .4rem;
+    border: none;
+    font-size: 1.5rem;
+    background-color: #512680;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    padding: .6rem 1rem;
+}
+
+input[type="submit"]:active {
+
+    transform: translateY(-0.07em);
+    transition: 0.04s;
+}
+
+#buttons {
+    padding-bottom: 3rem;
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+}
+
+@media (max-width: 659px) {
+    .signUp-Login {
+        width: 90%;
+    }
+
+    .signUp-Login h4 {
+        font-size: 2rem;
+    }
+
+    .mySlides {
+        width: 90%;
+    }
+
+    .mySlides img {
+        height: 34rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    input[type="submit"] {
+        font-size: 1.9rem;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="CSS/Index.css" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="fonts/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="CSS/navigation.css" />
+  <link rel="stylesheet" href="CSS/footer.css" />
+  <link rel="stylesheet" href="CSS/aboutUs.css" />
+  <script src="nav.js"></script>
+  <script src="APIs.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="temp">
+        <div class="logo">
+          <img src="Images/siteLogo.png" alt="">
+          <h2>Football Fantasy</h2>
+        </div>
+      </div>
+      <div class="bars">
+        <a href="#" onclick="toggleNavBar()">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </div>
+      <nav id="mobileNav">
+        <ul id="navButtons">
+          <li><a href="Index.html">Home</a></li>
+          <li><a href="Scoreboard.html">Scoreboard</a></li>
+          <li><a href="SoccerPlayers.html">Players</a></li>
+          <li><a href="AboutUs.html">About us</a></li>
+          <li class="profile" id="profile"><a href="Profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="flex-container">
+        <div class="flexbox-item flexbox-item-1">
+          <h2 class="heading">What is football fantasy?</h2>
+          <p>
+            Fantasy football is a game that casts you in the role of a Fantasy
+            Manager, given the task to pick a squad of real-life players who
+            score points for your team based on their real-life performances
+            in their matches.
+          </p>
+          <div class="image"><img src="Images/lineup.png" /></div>
+          <p>
+            To play Fantasy Football you’ll need to pick a team of 11 or
+            sometimes a squad of 15 real-life players or more,that will
+            represent you each week of the season. Over each of those weeks
+            they will score you points which will add and subtract to a total
+            that will be compared to other teams in your mini league and/or in
+            the Fantasy Game world overall with prizes at stake.
+          </p>
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+          <h2 class="heading">How do I pick my team or Squad?</h2>
+          <div class="image"><img src="Images/logo.jpg" /></div>
+          <p>
+            Every Fantasy Football game will hand you a budget which you spend
+            on your team or squad. If you new to Fantasy Football, this budget
+            may well seem generous but once you take a look at the player list
+            and start selecting, it’s a good bet that it will start getting
+            eaten up pretty quickly.
+          </p>
+        </div>
+        <div class="flexbox-item flexbox-item-3">
+          <h2 class="heading">How to have a strong team?</h2>
+          <div class="image">
+            <img src="/Front/Images/soccer-player.jpg" />
+          </div>
+          <p>
+            In fantasy football, by having a team that you have made, you can play
+            with other teams made by others and achieve the experience of a coach
+            by leading your team.<br />You can have great players like
+            Halaand, Mbappe, Messi, Ronaldo and ... in your team, but having
+            great players definitely requires a lot of money. So, to access
+            these great players, you have to win the match so that your score
+            and budget will increase so that you can have these players in
+            your team and your team will become stronger.<br />We hope you win
+            all your competitions so that you can score a lot of points and
+            achieve bigger goals in the game.<br><br>And finally, we hope you enjoy Football Fantasy.
+          </p>
+
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h3>Football Fantasy</h3>
+      <p>Copyright 2023</p>
+    </footer>
+  </div>
+
+
+  <script>
+    var profile = document.getElementById("profile");
+    window.onload = function () {
+      tokenAuthentication()
+        .then(response => {
+          if (response) {
+            profile.classList.add("enableProfile");
+            return;
+          }
+        })
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.listAndFilter {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 20rem;
+}
+
+/* 450 px */
+.soccer-players-list {
+    margin-inline: auto;
+    width: 60rem;
+}
+
+@media (min-height : 49.5rem) {
+    .filter-Container {
+        position: fixed;
+        left: 0;
+    }
+
+    .soccer-players-list {
+        margin-left: 30rem;
+        margin-right: 0;
+    }
+}
+
+@media (max-width : 600px) {
+    .listAndFilter {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-inline: auto;
+        margin-top: 0;
+        gap: 1rem;
+    }
+
+    .soccer-players-list {
+        margin-inline: auto;
+        margin-left: auto;
+        width: 100%;
+        margin-top: 5rem;
+    }
+
+    .filter-Container {
+        position: fixed;
+        top: 7.8rem;
+        left: 0;
+        width: 100%;
+    }
+
+    .filter {
+        width: 100%;
+    }
+
+    .filter label {
+        font-size: 1.7rem;
+    }
+
+    .filterByName input {
+        padding: 1.7rem;
+        flex-grow: 0;
+        width: 60%;
+    }
+
+    .filter input {
+        font-size: 2rem;
+    }
+
+    .filter span {
+        font-size: 2rem;
+    }
+
+    .filter .wrapper {
+        min-width: 34rem;
+    }
+
+    .filter .separator {
+        font-size: 2rem;
+        margin-inline: 2rem;
+    }
+
+    #FilterButton {
+        font-size: 2.3rem;
+    }
+
+    .filter-side {
+        background-color: rgb(228, 228, 228);;
+        margin: 0;
+        border-radius: 0;
+        max-height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition:
+            max-height .8s ease,
+            visibility .8s ease;
+    }
+
+    .wrapper {
+        margin-left: 2rem;
+    }
+
+    .icon-bar {
+        display: flex;
+        transition:
+            background-color .3s,
+            color .3s;
+    }
+
+    .enable-filter-side {
+        max-height: 80rem;
+        visibility: visible;
+    }
+
+    #FirstRow {
+        font-size: 1.7rem;
+    }
+
+    .row {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 450px) {
+    #FirstRow .item:nth-child(4),
+    .row .item:nth-child(4) {
+        display: none;
+    }
+}
+
+@media (max-width:350px) {
+    #FirstRow {
+        font-size: 1.5rem;
+    }
+
+    .row {
+        font-size: 1.4rem;
+    }
+
+    #FirstRow .item:first-child {
+        display: none;
+    }
+
+    .row .item:first-child {
+        display: none;
+    }
+
+    .filter .wrapper {
+        min-width: 24rem;
+    }
+}
